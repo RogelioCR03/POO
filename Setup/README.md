@@ -1,8 +1,8 @@
 # Pasos para instalar aplicaciones de consola C#
 
-## 1. Instalación de dotnet core 2.2
- 
+[Instalación de dotnet core 2.2] (./Setup/Dotnet Core/README.md)
 
+ 
 ## 2. Instalación y configuración de Visual Studio Code para C#
 
 
