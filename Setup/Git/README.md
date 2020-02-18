@@ -1,4 +1,6 @@
 -Entramos a la pagina de GIT (https://git-scm.com/), seleccionamos nuestro sistema operativo y descargamos la version dependiendo de los bits del mismo.
+
+
 ![Imagen1](https://4.bp.blogspot.com/-50Prokc7i-Q/Xks3tv7gvGI/AAAAAAAAACs/LIifOETG86Y7kAGEzEQ6Gq3e5GxRu792wCK4BGAYYCw/s320/git.PNG)
 
 -Se descargara un archivo llamado Git.exe el cual ejecutaremos como administrador
