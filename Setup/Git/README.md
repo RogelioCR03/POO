@@ -1,4 +1,4 @@
-#Instalación de git. conectado a tu cuenta de GitHub y VSC
+# Instalación de git. conectado a tu cuenta de GitHub y VSC
 
 
 -Entramos a la pagina de GIT (https://git-scm.com/), seleccionamos nuestro sistema operativo y descargamos la version dependiendo de los bits del mismo.
