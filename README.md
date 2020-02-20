@@ -2,6 +2,6 @@
 
 [Actividad 1](./Setup/README.md)
 
-[Actividad: Lista de Peliculas](./Peliculas/Program.cs)
+[Actividad: Programa Básico Películas](./Peliculas/Program.cs)
 
 
