@@ -27,7 +27,13 @@ namespace Peliculas
     {
         static void Main(string[] args)
         {
-            
+            pelicula p1 = new pelicula();
+            p1.SetTitulo("Gravity");
+            p1.SetAño("2013";
+                      
+            pelicula p2 = new pelicula();
+            p1.SetTitulo("The Hurt Locker");
+            p1.SetAño("2009");
         }
             
     }
