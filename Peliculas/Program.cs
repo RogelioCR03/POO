@@ -5,21 +5,18 @@ namespace Peliculas
     class pelicula
     {
         private string titulo;
-        private int año;
+        private Int16 año;
         private string pais;
         private string director;
 
-        public pelicula(string t)
+        public pelicula(string titulo, Int16 año)
         {
-            titulo=t;
+            this.titulo=titulo;
+            this.año=año;
         }
-        public string SetTitulo()
+        public void imprime()
         {
-            return titulo;
-        }
-        public int SetAño()
-        {
-            return año;
+            Console.WriteLine(titulo,año);
         }
 
     }
@@ -27,13 +24,13 @@ namespace Peliculas
     {
         static void Main(string[] args)
         {
-            pelicula p1 = new pelicula();
-            p1.SetTitulo("Gravity");
-            p1.SetAño("2013";
-                      
-            pelicula p2 = new pelicula();
-            p1.SetTitulo("The Hurt Locker");
-            p1.SetAño("2009");
+            pelicula p1 = new pelicula("Gravity",2013);
+            p1.imprime();
+
+            pelicula p2 = new pelicula("Joker",2019);
+            p2.imprime();
+
+                
         }
             
     }
