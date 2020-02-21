@@ -8,19 +8,27 @@ namespace Peliculas
         private int año;
         private string pais;
         private string director;
-        public pelicula (string n,int a, string p,string d)
+
+        public pelicula(string t)
         {
-            titulo=n;
-            año=a;
-            pais=p;
-            director=d;
+            titulo=t;
         }
-        
+        public string SetTitulo()
+        {
+            return titulo;
+        }
+        public int SetAño()
+        {
+            return año;
+        }
+
     }
     class Program
     {
         static void Main(string[] args)
         {
+            
+        }
             
     }
 }
