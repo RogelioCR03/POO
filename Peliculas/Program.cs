@@ -16,7 +16,7 @@ namespace Peliculas
         }
         public void imprime()
         {
-            Console.WriteLine("{0} {1}  ",titulo,año);
+            Console.WriteLine("{0} {1}",titulo,año);
         }
 
     }
