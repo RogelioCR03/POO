@@ -4,4 +4,5 @@
 
 [Actividad: Programa Básico Películas](./Peliculas/Program.cs)
 
+[Actividad: Lista de Películas](./Lista/Program.cs)
 
