@@ -14,16 +14,23 @@ namespace Actores
        {
            nombre = p;
        }
+    }
 
-        public string actor;
+    class actores 
+    {
+        private string actor;
+        private Int16 año;
+
+        public actores (string actor, Int16 año)
+        {
+            this.actor=actor;
+            this.año=año;
+        }
         public void imprimeActores()
         {
-            Console.WriteLine(actor);
+            Console.WriteLine("{0} {1}",actor,año);
         }
-        public AgregaActor(string a)
-        {
-            actor = a;
-        }
+        
         
     }
 
@@ -32,13 +39,14 @@ namespace Actores
         static void Main(string[] args)
         {
             List<Peliculas> pelicula = new List<Peliculas>();
-            List<AgregaActor> actores = new List<AgregaActor>();
             pelicula.Add(new Peliculas("Avengers"));
-            actores.add(new AgregaActor("Robert Dawney JR"));
-            actores [0].imprime();
+            actores a1 = new actores("Robert Dawney Jr", 1965);
+
+
 
             foreach (Peliculas a in pelicula)
             a.imprime();
+            a1.imprimeActores();
         }
     }
 }
