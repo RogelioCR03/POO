@@ -6,13 +6,16 @@ namespace Actores
     class Peliculas
     {
        public string nombre;
+       public Int16 añop;
        public void imprime()
        {
-           Console.WriteLine(nombre);
+           Console.WriteLine("{0} {1}", nombre,añop);
        } 
-       public Peliculas(string p)
+       public Peliculas(string p, Int16 a)
        {
            nombre = p;
+           añop = a;
+
        }
     }
 
@@ -39,7 +42,7 @@ namespace Actores
         static void Main(string[] args)
         {
             List<Peliculas> pelicula = new List<Peliculas>();
-            pelicula.Add(new Peliculas("Avengers"));
+            pelicula.Add(new Peliculas("Avengers", 2012));
             actores a1 = new actores("Robert Dawney Jr", 1965);
 
 
