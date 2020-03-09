@@ -49,8 +49,9 @@ namespace Actores
        {
            Console.WriteLine("La pelicula " + "{0}" + " fue estrenada en el año " + "{1}", nombre,año);
            foreach (actor a in actores){
-               Console.WriteLine("En papel principal fue interpretado por " + "{0}" + " nacido(a) en el año " + "{1}", a.getActor(), a.getAñoa());
+               Console.WriteLine("El papel principal fue interpretado por " + "{0}" + " nacido(a) en el año " + "{1}", a.getActor(), a.getAñoa());
            }
+           Console.WriteLine();
        }
     }
     class Program
