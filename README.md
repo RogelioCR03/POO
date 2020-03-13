@@ -1,6 +1,6 @@
 # POO
 
-[Actividad 1](./Setup/README.md)
+[Actividad: Pasos para instalar aplicaciones de consola C#](./Setup/README.md)
 
 [Actividad: Programa Básico Películas](./Peliculas/Program.cs)
 
@@ -8,3 +8,4 @@
 
 [Actividad: Actores](./Actores/Program.cs)
 
+[Actividad: UML](./UML/README.md)
