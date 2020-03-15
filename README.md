@@ -9,3 +9,5 @@
 [Actividad: Actores](./Actores/Program.cs)
 
 [Actividad: UML](./UML/README.md)
+
+[Actividad: Paso de parametros](./Parametros/Program.cs)
