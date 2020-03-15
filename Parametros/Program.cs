@@ -42,7 +42,7 @@ namespace Parametros
             //Aqui mandamos un valor al argumento duplica
 
             Console.WriteLine("Resultado sin usar parametro: " + x);
-            //Al imprimirlo queda igual porque no esta puesto el metodo ref y lo que imprime es el valor inicial
+            //Al imprimirlo queda igual porque no esta puesto el comando ref y lo que imprime es el valor inicial
 
             d.duplica_ref(ref y);
             //Aqui mandamos un valor al argumento duplica_ref
@@ -51,13 +51,13 @@ namespace Parametros
             //Si se modifica porque esta puesto como referencia
 
             d.duplica_in(in z);
-            //Aqui mandamos un valor al argumento duplica_in
+            //Aqui mandamos un valor al metodo duplica_in
 
             Console.WriteLine("Resultado usando parametro tipo in: " + z);
-            //Al imprimirlo nos regresa el valor de origen ya que esa es la funcion de in, querer utilizar un valor sin modificarlo en caso de que tengamos un argumento que use el mismo
+            //Al imprimirlo nos regresa el valor de origen ya que esa es la funcion de in, querer utilizar un valor sin modificarlo en caso de que tengamos un metodo que use el mismo
 
             Duplicador.duplica_out(in a, in b, out c);
-            //Aqui mandamos los datos propuestos en la class Program al argumento duplica_out para que haga la operacion propuesta
+            //Aqui mandamos los datos propuestos en la class Program al metodo duplica_out para que haga la operacion propuesta
 
             Console.WriteLine("Resultado usando parametro tipo out: " + c);
             //Aqui imprime solo el resultado de la operacion
