@@ -11,3 +11,7 @@
 [Actividad: UML](./UML/README.md)
 
 [Actividad: Paso de parametros](./Parametros/Program.cs)
+
+[Actividad: Domino](./Domino/Program.cs)
+
+[Actividad: Duracion](./Duracion/Program.cs)
