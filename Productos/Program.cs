@@ -107,16 +107,16 @@ namespace Productos
         static void Main(string[] args)
         {
             /*
-            Productos.Add(new Producto("Balon", "Balon Nike del numero 5", 6, "SAHF5121", 89, 109.99));
-            Productos.Add(new Producto("Agua natural", "Agua embotellada Bonafont", 9, "IENA7123", 14, 9.99));
-            Productos.Add(new Producto("Cargador SAMSUNG", "Cargador carga rapida", 15, "GARQ1079", 57, 79.99));
-            Productos.Add(new Producto("Cera AquaNet", "Cera para cabello", 3, "GQEH3798", 47, 39.99));
-            Productos.Add(new Producto("Sartenes T-FAL", "Bateria de cocina", 2, "PQNF3798", 81, 1889.99));
-            Productos.Add(new Producto("Guantes ADIDAS", "Guantes de portero", 6, "SAHF7897", 57, 169.99));
-            Productos.Add(new Producto("Audifonos SKULLCANDY", "Audifonos inalambricos", 15, "PQUE1097", 107, 249.99));
-            Productos.Add(new Producto("Coca-Cola", "Refresco de cola", 9, "IENA1489", 38, 14.99));
-            Productos.Add(new Producto("Crema Pond's", "Crema para la piel", 3, "GQEH3478", 28, 59.99));
-            Productos.Add(new Producto("Cuchillos Cuisinart", "Juego de cuchillos para cocina", 2, "PQNF7813", 53, 349.99));
+            0Productos.Add(new Producto("Balon", "Balon Nike del numero 5", 6, "SAHF5121", 89, 109.99));
+            1Productos.Add(new Producto("Agua natural", "Agua embotellada Bonafont", 9, "IENA7123", 14, 9.99));
+            2Productos.Add(new Producto("Cargador SAMSUNG", "Cargador carga rapida", 15, "GARQ1079", 57, 79.99));
+            3Productos.Add(new Producto("Cera AquaNet", "Cera para cabello", 3, "GQEH3798", 47, 39.99));
+            4Productos.Add(new Producto("Sartenes T-FAL", "Bateria de cocina", 2, "PQNF3798", 81, 1889.99));
+            5Productos.Add(new Producto("Guantes ADIDAS", "Guantes de portero", 6, "SAHF7897", 57, 169.99));
+            6Productos.Add(new Producto("Audifonos SKULLCANDY", "Audifonos inalambricos", 15, "PQUE1097", 107, 249.99));
+            7Productos.Add(new Producto("Coca-Cola", "Refresco de cola", 9, "IENA1489", 38, 14.99));
+            8Productos.Add(new Producto("Crema Pond's", "Crema para la piel", 3, "GQEH3478", 28, 59.99));
+            9Productos.Add(new Producto("Cuchillos Cuisinart", "Juego de cuchillos para cocina", 2, "PQNF7813", 53, 349.99));
             ProductDB.WriteToTXT("Listado.txt", Productos);
             */
             
@@ -149,8 +149,8 @@ namespace Productos
                 {
                     List<Producto> Productos = new List<Producto>();
                     Productos = ProductDB.ReadFromTXT(@".\Listado.txt");
-                    Productos.ToArray();
-                    Console.WriteLine("{0}", Productos[2]);
+                    foreach(Producto p in Productos)
+                    Console.WriteLine("Producto: {0}|{1}|Dep: {2}|Codigo: {3}|Likes: {4}|Precio: {5}$", p.nombre, p.descripcion, p.departamento, p.codigo, p.likes, p.precio);
                 }
             }
             else if (instruccion == 3)
