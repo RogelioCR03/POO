@@ -1,0 +1,10 @@
+Balon|Balon Nike del numero 5|6|SAHF5121|89|109.99
+Agua natural|Agua embotellada Bonafont|9|IENA7123|14|9.99
+Cargador SAMSUNG|Cargador carga rapida|15|GARQ1079|57|79.99
+Cera AquaNet|Cera para cabello|3|GQEH3798|47|39.99
+Sartenes T-FAL|Bateria de cocina|2|PQNF3798|81|1889.99
+Guantes ADIDAS|Guantes de portero|6|SAHF7897|57|169.99
+Audifonos SKULLCANDY|Audifonos inalambricos|15|PQUE1097|107|249.99
+Coca-Cola|Refresco de cola|9|IENA1489|38|14.99
+Crema Pond's|Crema para la piel|3|GQEH3478|28|59.99
+Cuchillos Cuisinart|Juego de cuchillos para cocina|2|PQNF7813|53|349.99
