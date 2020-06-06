@@ -121,6 +121,7 @@ namespace Productos
             */
             
             int instruccion;
+            int departamento;
 
             Console.WriteLine("¿Que desea saber?");
             Console.WriteLine("1.- Lista de precios completa");
@@ -137,10 +138,20 @@ namespace Productos
             }
             else if (instruccion == 2)
             {
-                List<Producto> Productos = new List<Producto>();
-                Productos = ProductDB.ReadFromTXT(@".\Listado.txt");
-                foreach(Producto p in Productos)
-                Console.WriteLine("{0}|{1}|{2}|{3}|{4}|{5}", p.nombre, p.descripcion, p.departamento, p.codigo, p.likes, p.precio);
+                Console.WriteLine("¿De que departamentos desea productos?");
+                Console.WriteLine("Departamento 2: Articulos para el hogar");
+                Console.WriteLine("Departamento 3: Cosmeticos");
+                Console.WriteLine("Departamento 6: Deportes");
+                Console.WriteLine("Departamento 9: Alimentos y bebidas");
+                Console.WriteLine("Departamento 15: Electronica");
+                departamento = Int32.Parse(Console.ReadLine());
+                if(departamento == 2)
+                {
+                    List<Producto> Productos = new List<Producto>();
+                    Productos = ProductDB.ReadFromTXT(@".\Listado.txt");
+                    Productos.ToArray();
+                    Console.WriteLine("{0}", Productos[2]);
+                }
             }
             else if (instruccion == 3)
             {
