@@ -30,7 +30,10 @@ namespace Productos
         {
             return likes.CompareTo(((Producto)obj).likes);
         }
-       
+       public int Compare(object obj)
+       {
+           return departamento.CompareTo(((Producto)obj).departamento);
+       }
     }
     
     /*class PrecioFecha
@@ -127,6 +130,7 @@ namespace Productos
             Console.WriteLine("1.- Lista de precios completa");
             Console.WriteLine("2.- Productos por departamento");
             Console.WriteLine("3.- Orden de likes");
+            Console.WriteLine("Ingrese instruccion:");
             instruccion = Int32.Parse(Console.ReadLine());
 
             if (instruccion == 1)
@@ -144,11 +148,22 @@ namespace Productos
                 Console.WriteLine("Departamento 6: Deportes");
                 Console.WriteLine("Departamento 9: Alimentos y bebidas");
                 Console.WriteLine("Departamento 15: Electronica");
+                Console.WriteLine("Ingrese departamento");
                 departamento = Int32.Parse(Console.ReadLine());
                 if(departamento == 2)
                 {
                     List<Producto> Productos = new List<Producto>();
                     Productos = ProductDB.ReadFromTXT(@".\Listado.txt");
+                    Productos.RemoveRange(0,4);
+                    Productos.RemoveRange(1,4);
+                    foreach(Producto p in Productos)
+                    Console.WriteLine("Producto: {0}|{1}|Dep: {2}|Codigo: {3}|Likes: {4}|Precio: {5}$", p.nombre, p.descripcion, p.departamento, p.codigo, p.likes, p.precio);
+                }
+                else if (departamento == 3)
+                {
+                    List<Producto> Productos = new List<Producto>();
+                    Productos = ProductDB.ReadFromTXT(@".\Listado.txt");
+                    Productos.Sort();
                     foreach(Producto p in Productos)
                     Console.WriteLine("Producto: {0}|{1}|Dep: {2}|Codigo: {3}|Likes: {4}|Precio: {5}$", p.nombre, p.descripcion, p.departamento, p.codigo, p.likes, p.precio);
                 }
