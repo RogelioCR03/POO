@@ -30,12 +30,7 @@ namespace Productos
         {
             return likes.CompareTo(((Producto)obj).likes);
         }
-       public int Compare(object obj)
-       {
-           return departamento.CompareTo(((Producto)obj).departamento);
-       }
     }
-    
     /*class PrecioFecha
     {
         public List <PrecioFecha> Precios;
@@ -77,7 +72,6 @@ namespace Productos
             return String.Format("{0}{1}{2}", DateTime.)
         }
     }*/
-
     class ProductDB
     {
         public static void WriteToTXT(string path, List<Producto> Productos)
@@ -104,7 +98,13 @@ namespace Productos
             return Productos;
         }
     }
-    
+    class InstruccionOverFlowExcepcion : Exception
+    {
+        public InstruccionOverFlowExcepcion():base("Instruccion no valida")
+        {
+
+        }
+    }
     class Program
     {
         static void Main(string[] args)
@@ -123,59 +123,112 @@ namespace Productos
             ProductDB.WriteToTXT("Listado.txt", Productos);
             */
             
-            int instruccion;
-            int departamento;
+            int instruccion = -1;
+            int departamento = -1;
 
             Console.WriteLine("¿Que desea saber?");
             Console.WriteLine("1.- Lista de precios completa");
             Console.WriteLine("2.- Productos por departamento");
             Console.WriteLine("3.- Orden de likes");
             Console.WriteLine("Ingrese instruccion:");
-            instruccion = Int32.Parse(Console.ReadLine());
-
-            if (instruccion == 1)
+            
+            try
             {
-                List<Producto> Productos = new List<Producto>();
-                Productos = ProductDB.ReadFromTXT(@".\Listado.txt");
-                foreach(Producto p in Productos)
-                Console.WriteLine("Producto: {0}|{1}|Dep: {2}|Codigo: {3}|Likes: {4}|Precio: {5}$", p.nombre, p.descripcion, p.departamento, p.codigo, p.likes, p.precio);
+                instruccion = Int32.Parse(Console.ReadLine());
+                if (instruccion >= 4)
+                {
+                    instruccion = -1;
+                    throw new InstruccionOverFlowExcepcion();
+                }
+                else if(instruccion <= 0)
+                {
+                    instruccion = -1;
+                    throw new InstruccionOverFlowExcepcion();
+                }
             }
-            else if (instruccion == 2)
+            catch (InstruccionOverFlowExcepcion)
             {
-                Console.WriteLine("¿De que departamentos desea productos?");
-                Console.WriteLine("Departamento 2: Articulos para el hogar");
-                Console.WriteLine("Departamento 3: Cosmeticos");
-                Console.WriteLine("Departamento 6: Deportes");
-                Console.WriteLine("Departamento 9: Alimentos y bebidas");
-                Console.WriteLine("Departamento 15: Electronica");
-                Console.WriteLine("Ingrese departamento");
-                departamento = Int32.Parse(Console.ReadLine());
-                if(departamento == 2)
+                Console.WriteLine("Ingresa una instruccion valida");
+            }
+            catch(FormatException)
+            {
+                Console.WriteLine("Solo puedes ingresar numeros");
+            }
+            catch(Exception)
+            {
+                Console.WriteLine("El dato ingresado no es valido");
+            }
+            if (instruccion != -1)
+            {
+                if (instruccion == 1)
                 {
                     List<Producto> Productos = new List<Producto>();
                     Productos = ProductDB.ReadFromTXT(@".\Listado.txt");
-                    Productos.RemoveRange(0,4);
-                    Productos.RemoveRange(1,4);
                     foreach(Producto p in Productos)
                     Console.WriteLine("Producto: {0}|{1}|Dep: {2}|Codigo: {3}|Likes: {4}|Precio: {5}$", p.nombre, p.descripcion, p.departamento, p.codigo, p.likes, p.precio);
                 }
-                else if (departamento == 3)
+                else if (instruccion == 2)
                 {
+                    Console.WriteLine("¿De que departamentos desea productos?");
+                    Console.WriteLine("Departamento 2: Articulos para el hogar");
+                    Console.WriteLine("Departamento 3: Cosmeticos");
+                    Console.WriteLine("Departamento 6: Deportes");
+                    Console.WriteLine("Departamento 9: Alimentos y bebidas");
+                    Console.WriteLine("Departamento 15: Electronica");
+                    Console.WriteLine("Ingrese departamento: ");
+                    departamento = Int32.Parse(Console.ReadLine());
+                
                     List<Producto> Productos = new List<Producto>();
                     Productos = ProductDB.ReadFromTXT(@".\Listado.txt");
-                    Productos.Sort();
-                    foreach(Producto p in Productos)
-                    Console.WriteLine("Producto: {0}|{1}|Dep: {2}|Codigo: {3}|Likes: {4}|Precio: {5}$", p.nombre, p.descripcion, p.departamento, p.codigo, p.likes, p.precio);
+                
+                    if(departamento == 2)
+                    {
+                        Productos.RemoveRange(0,4);
+                        Productos.RemoveRange(1,4);
+                        foreach(Producto p in Productos)
+                        Console.WriteLine("Producto: {0}|{1}|Dep: {2}|Codigo: {3}|Likes: {4}|Precio: {5}$", p.nombre, p.descripcion, p.departamento, p.codigo, p.likes, p.precio);
+                    }
+                    else if (departamento == 3)
+                    {
+                        Productos.RemoveRange(0,3);
+                        Productos.RemoveRange(1,4);
+                        Productos.RemoveAt(2);
+                        foreach(Producto p in Productos)
+                        Console.WriteLine("Producto: {0}|{1}|Dep: {2}|Codigo: {3}|Likes: {4}|Precio: {5}$", p.nombre, p.descripcion, p.departamento, p.codigo, p.likes, p.precio);
+                    }
+                    else if (departamento == 6)
+                    {
+                        Productos.RemoveRange(1,4);
+                        Productos.RemoveRange(2,4);
+                        foreach(Producto p in Productos)
+                        Console.WriteLine("Producto: {0}|{1}|Dep: {2}|Codigo: {3}|Likes: {4}|Precio: {5}$", p.nombre, p.descripcion, p.departamento, p.codigo, p.likes, p.precio);
+                    }
+                    else if (departamento == 9)
+                    {
+                        Productos.RemoveAt(0);
+                        Productos.RemoveRange(1,5);
+                        Productos.RemoveRange(2,2);
+                        foreach(Producto p in Productos)
+                        Console.WriteLine("Producto: {0}|{1}|Dep: {2}|Codigo: {3}|Likes: {4}|Precio: {5}$", p.nombre, p.descripcion, p.departamento, p.codigo, p.likes, p.precio);
+                    }
+                    else if (departamento == 15)
+                    {
+                        Productos.RemoveRange(0,2);
+                        Productos.RemoveRange(1,3);
+                        Productos.RemoveRange(2,3);
+                        foreach(Producto p in Productos)
+                        Console.WriteLine("Producto: {0}|{1}|Dep: {2}|Codigo: {3}|Likes: {4}|Precio: {5}$", p.nombre, p.descripcion, p.departamento, p.codigo, p.likes, p.precio);
+                    }
                 }
-            }
-            else if (instruccion == 3)
-            {
-                List<Producto> Productos = new List<Producto>();
-                Productos = ProductDB.ReadFromTXT(@".\Listado.txt");
-                Productos.Sort();
-                Productos.Reverse();
-                foreach(Producto p in Productos)
-                Console.WriteLine("Producto: {1}|{2}|Dep: {3}|Codigo: {4}|Likes: {0}|Precio: {5}$", p.likes, p.nombre, p.descripcion, p.departamento, p.codigo, p.precio);
+                else if (instruccion == 3)
+                    {
+                        List<Producto> Productos = new List<Producto>();
+                        Productos = ProductDB.ReadFromTXT(@".\Listado.txt");
+                        Productos.Sort();
+                        Productos.Reverse();
+                        foreach(Producto p in Productos)
+                        Console.WriteLine("Producto: {1}|{2}|Dep: {3}|Codigo: {4}|Likes: {0}|Precio: {5}$", p.likes, p.nombre, p.descripcion, p.departamento, p.codigo, p.precio);
+                    }
             }
         }
     }
