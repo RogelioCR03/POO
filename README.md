@@ -15,3 +15,5 @@
 [Actividad: Domino](./Domino/Program.cs)
 
 [Actividad: Duracion](./Duracion/Program.cs)
+
+[Actividad: Proyecto Unidades 5 y 6](./Productos/Program.cs)
