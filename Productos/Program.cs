@@ -110,21 +110,24 @@ namespace Productos
         static void Main(string[] args)
         {
             /*
-            0Productos.Add(new Producto("Balon", "Balon Nike del numero 5", 6, "SAHF5121", 89, 109.99));
-            1Productos.Add(new Producto("Agua natural", "Agua embotellada Bonafont", 9, "IENA7123", 14, 9.99));
-            2Productos.Add(new Producto("Cargador SAMSUNG", "Cargador carga rapida", 15, "GARQ1079", 57, 79.99));
-            3Productos.Add(new Producto("Cera AquaNet", "Cera para cabello", 3, "GQEH3798", 47, 39.99));
-            4Productos.Add(new Producto("Sartenes T-FAL", "Bateria de cocina", 2, "PQNF3798", 81, 1889.99));
-            5Productos.Add(new Producto("Guantes ADIDAS", "Guantes de portero", 6, "SAHF7897", 57, 169.99));
-            6Productos.Add(new Producto("Audifonos SKULLCANDY", "Audifonos inalambricos", 15, "PQUE1097", 107, 249.99));
-            7Productos.Add(new Producto("Coca-Cola", "Refresco de cola", 9, "IENA1489", 38, 14.99));
-            8Productos.Add(new Producto("Crema Pond's", "Crema para la piel", 3, "GQEH3478", 28, 59.99));
-            9Productos.Add(new Producto("Cuchillos Cuisinart", "Juego de cuchillos para cocina", 2, "PQNF7813", 53, 349.99));
+            List<Producto> Productos = new List<Producto>();
+            Productos.Add(new Producto("Balon", "Balon Nike del numero 5", 6, "SAHF5121", 89, 109.99));
+            Productos.Add(new Producto("Agua natural", "Agua embotellada Bonafont", 5, "IENA7123", 14, 9.99));
+            Productos.Add(new Producto("Cargador SAMSUNG", "Cargador carga rapida", 9, "GARQ1079", 57, 79.99));
+            Productos.Add(new Producto("Cera AquaNet", "Cera para cabello", 7, "GQEH3798", 47, 39.99));
+            Productos.Add(new Producto("Sartenes T-FAL", "Bateria de cocina", 8, "PQNF3798", 81, 1889.99));
+            Productos.Add(new Producto("Guantes ADIDAS", "Guantes de portero", 6, "SAHF7897", 57, 169.99));
+            Productos.Add(new Producto("Audifonos SKULLCANDY", "Audifonos inalambricos", 9, "PQUE1097", 107, 249.99));
+            Productos.Add(new Producto("Coca-Cola", "Refresco de cola", 5, "IENA1489", 38, 14.99));
+            Productos.Add(new Producto("Crema Pond's", "Crema para la piel", 7, "GQEH3478", 28, 59.99));
+            Productos.Add(new Producto("Cuchillos Cuisinart", "Juego de cuchillos para cocina", 8, "PQNF7813", 53, 349.99));
             ProductDB.WriteToTXT("Listado.txt", Productos);
             */
+        
             
             int instruccion = -1;
             int departamento = -1;
+            bool dep = false;
 
             Console.WriteLine("¿Que desea saber?");
             Console.WriteLine("1.- Lista de precios completa");
@@ -170,25 +173,44 @@ namespace Productos
                 else if (instruccion == 2)
                 {
                     Console.WriteLine("¿De que departamentos desea productos?");
-                    Console.WriteLine("Departamento 2: Articulos para el hogar");
-                    Console.WriteLine("Departamento 3: Cosmeticos");
+                    Console.WriteLine("Departamento 5: Alimentos y bebidas");
                     Console.WriteLine("Departamento 6: Deportes");
-                    Console.WriteLine("Departamento 9: Alimentos y bebidas");
-                    Console.WriteLine("Departamento 15: Electronica");
-                    Console.WriteLine("Ingrese departamento: ");
-                    departamento = Int32.Parse(Console.ReadLine());
+                    Console.WriteLine("Departamento 7: Cosmeticos");
+                    Console.WriteLine("Departamento 8: Articulos para el hogar");
+                    Console.WriteLine("Departamento 9: Electronica");
+
+                    while(!dep)
+                    {
+                        Console.WriteLine("Ingrese departamento: ");
+                        dep = int.TryParse(Console.ReadLine(), out departamento);
+                        if(!dep)
+                        {
+                            Console.WriteLine("Hubo un error al ingresar departamento");
+                        }
+                        if(departamento <= 4)
+                        {
+                            Console.WriteLine("Ese departamento no existe");
+                            dep = false;
+                        }
+                        if(departamento >= 10)
+                        {
+                            Console.WriteLine("Ese departamento no existe");
+                            dep = false;
+                        }
+            
+                    }
                 
                     List<Producto> Productos = new List<Producto>();
                     Productos = ProductDB.ReadFromTXT(@".\Listado.txt");
                 
-                    if(departamento == 2)
+                    if(departamento == 8)
                     {
                         Productos.RemoveRange(0,4);
                         Productos.RemoveRange(1,4);
                         foreach(Producto p in Productos)
                         Console.WriteLine("Producto: {0}|{1}|Dep: {2}|Codigo: {3}|Likes: {4}|Precio: {5}$", p.nombre, p.descripcion, p.departamento, p.codigo, p.likes, p.precio);
                     }
-                    else if (departamento == 3)
+                    else if (departamento == 7)
                     {
                         Productos.RemoveRange(0,3);
                         Productos.RemoveRange(1,4);
@@ -203,7 +225,7 @@ namespace Productos
                         foreach(Producto p in Productos)
                         Console.WriteLine("Producto: {0}|{1}|Dep: {2}|Codigo: {3}|Likes: {4}|Precio: {5}$", p.nombre, p.descripcion, p.departamento, p.codigo, p.likes, p.precio);
                     }
-                    else if (departamento == 9)
+                    else if (departamento == 5)
                     {
                         Productos.RemoveAt(0);
                         Productos.RemoveRange(1,5);
@@ -211,7 +233,7 @@ namespace Productos
                         foreach(Producto p in Productos)
                         Console.WriteLine("Producto: {0}|{1}|Dep: {2}|Codigo: {3}|Likes: {4}|Precio: {5}$", p.nombre, p.descripcion, p.departamento, p.codigo, p.likes, p.precio);
                     }
-                    else if (departamento == 15)
+                    else if (departamento == 9)
                     {
                         Productos.RemoveRange(0,2);
                         Productos.RemoveRange(1,3);
@@ -229,6 +251,7 @@ namespace Productos
                         foreach(Producto p in Productos)
                         Console.WriteLine("Producto: {1}|{2}|Dep: {3}|Codigo: {4}|Likes: {0}|Precio: {5}$", p.likes, p.nombre, p.descripcion, p.departamento, p.codigo, p.precio);
                     }
+                    
             }
         }
     }
