@@ -16,4 +16,14 @@
 
 [Actividad: Duracion](./Duracion/Program.cs)
 
-[Actividad: Proyecto Unidades 5 y 6](./Productos/Program.cs)
+[Actividad: Alumnos](./Alumnos/Program.cs)
+
+[Actividad: Musicos](./Musicos/Program.cs)
+
+[Actividad: Ilustrador](./Ilustrador/Program.cs)
+
+[Actividad: Pila](./Pila/Program.cs)
+
+[Actividad: Cola](./Cola/Program.cs)
+
+[Actividad: Proyecto de Consola "Productos"](./Productos/Program.cs)
